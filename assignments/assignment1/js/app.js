@@ -42,7 +42,8 @@
 
         /**
          * Gets all the items introduced by the user as array
-         * Replaces all the spaces on empty string
+         * Replaces all the spaces with empty string,
+         * to facilitate the removal of empty items
          *
          * @returns {Array} Array with items
          */
