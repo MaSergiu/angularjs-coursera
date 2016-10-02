@@ -1,0 +1,34 @@
+<div class="container-fluid" ng-if="directiveController.itemsFound && directiveController.itemsFound.length > 0">
+    <ul class="list-group">
+        <li class="list-group-item"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <strong>Name</strong>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <strong>Short name</strong>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <strong>Description</strong>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <strong>Action</strong>
+            </div>
+        </div></li>
+        <li ng-repeat="item in directiveController.itemsFound" class="list-group-item">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    {{ item.name }}
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    {{ item.short_name }}
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    {{ item.description }}
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <button ng-click="directiveController.onRemove({index: $index});" class="btn btn-warning">Remove Item</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
