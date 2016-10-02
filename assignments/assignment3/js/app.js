@@ -70,7 +70,6 @@
 
                 var foundItems = [];
                 angular.forEach(menuItems, function (valueObject, objectIndex) {
-                    searchTerm = searchTerm.toLowerCase();
                     var itemDescription = valueObject.description;
                     if(itemDescription.indexOf(searchTerm) !== -1){
                         foundItems.push(valueObject);
