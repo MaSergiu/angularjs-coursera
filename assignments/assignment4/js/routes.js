@@ -13,7 +13,7 @@
         // *** Set up UI states ***
         $stateProvider
 
-        // Home page
+            // Home page
             .state('home', {
                 url: '/',
                 templateUrl: 'templates/home.template.html'
@@ -32,7 +32,7 @@
             // Items state
             .state('items', {
                 url: '/items',
-                templateUrl: 'templates/categories.template.html',
+                templateUrl: 'templates/items.template.html',
                 controller: 'ItemsComponentController as items',
                 resolve: {
 

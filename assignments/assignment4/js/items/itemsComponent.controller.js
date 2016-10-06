@@ -2,18 +2,11 @@
     'use strict';
 
     angular.module('MenuApp')
-        .component('ItemsComponent', {
-            templateUrl: '',
-            controller: ItemsComponentController,
-            bindings: {
-
-            }
-        });
+        .controller('ItemsComponentController', ItemsComponentController);
 
     ItemsComponentController.$inject = [];
     function ItemsComponentController() {
         var controller = this;
 
     }
-
 })();
