@@ -12,10 +12,23 @@
 
         service.getAllCategories = function () {
 
+            return $http({
+                method: 'GET',
+                url: CategoriesPath
+            }).then(function (response) {
+
+                return response.data;
+            });
         };
 
         service.getItemsForCategory = function (categoryShortName) {
+            return $http({
+                method: 'GET',
+                url: ItemsForCategoryPath + categoryShortName
+            }).then(function (response) {
 
+                return response.data.menu_items
+            });
         };
     }
 })();

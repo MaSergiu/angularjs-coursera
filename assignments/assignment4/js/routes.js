@@ -25,18 +25,17 @@
                 templateUrl: 'templates/categories.template.html',
                 controller: 'CategoriesComponentController as categories',
                 resolve: {
-
+                    listOfCategories: ['MenuDataService', function (MenuDataService) {
+                        return MenuDataService.getAllCategories();
+                    }]
                 }
             })
 
             // Items state
-            .state('items', {
-                url: '/items',
+            .state('categories.items', {
+                url: '/items/{itemId}',
                 templateUrl: 'templates/items.template.html',
-                controller: 'ItemsComponentController as items',
-                resolve: {
-
-                }
+                controller: 'ItemsComponentController as items'
             });
     }
 

@@ -5,7 +5,7 @@
         .component('categoriesComponent', {
             templateUrl: '../../templates/categories.template.html',
             bindings: {
-
+                categories: "<"
             }
         });
 })();
