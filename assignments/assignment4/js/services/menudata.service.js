@@ -27,7 +27,7 @@
                 url: ItemsForCategoryPath + categoryShortName
             }).then(function (response) {
 
-                return response.data.menu_items
+                return response.data.menu_items;
             });
         };
     }

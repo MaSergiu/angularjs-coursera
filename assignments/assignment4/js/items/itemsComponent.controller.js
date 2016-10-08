@@ -4,13 +4,14 @@
     angular.module('MenuApp')
         .controller('ItemsComponentController', ItemsComponentController);
 
-    ItemsComponentController.$inject = ['$stateParams', 'items'];
-    function ItemsComponentController($stateParams, items) {
+    ItemsComponentController.$inject = ['$stateParams', 'listOfCategories', 'MenuDataService'];
+    function ItemsComponentController($stateParams, listOfCategories, MenuDataService) {
         var controller = this;
 
-        var item = items[$stateParams.itemId];
-        console.log(item);
+        var category = listOfCategories[$stateParams.itemId];
 
-        controller.name = item.name;
+        MenuDataService.getItemsForCategory(category.short_name).then(function (response) {
+            controller.returnedItems = response;
+        });
     }
 })();

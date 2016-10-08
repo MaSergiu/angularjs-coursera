@@ -8,13 +8,6 @@
     function CategoriesComponentController(MenuDataService, listOfCategories) {
         var controller = this;
 
-        controller.categories = listOfCategories;
-
-        controller.getItemsForCategory = function (categoryShortName) {
-            return MenuDataService.getItemsForCategory(categoryShortName).then(function (response) {
-
-                return response;
-            });
-        }
+        controller.returnedCategories = listOfCategories;
     }
 })();
