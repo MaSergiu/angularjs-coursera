@@ -16,13 +16,13 @@
             // Home page
             .state('home', {
                 url: '/',
-                templateUrl: 'templates/home.template.html'
+                templateUrl: 'src/home/home.template.html'
             })
 
             // Categories state
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'templates/categories.template.html',
+                templateUrl: 'src/categories/categories.template.html',
                 controller: 'CategoriesComponentController as categories',
                 resolve: {
                     listOfCategories: ['MenuDataService', function (MenuDataService) {
@@ -32,11 +32,18 @@
             })
 
             // Items state
-            .state('categories.items', {
-                url: '/items/{itemId}',
-                templateUrl: 'templates/items.template.html',
-                controller: 'ItemsComponentController as items'
-            });
+            .state('items', {
+                url: '/items/{categoryShortName}',
+                templateUrl: 'src/items/items.template.html',
+                controller: 'ItemsComponentController as items',
+                resolve: {
+                    listOfItems: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+                        return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+                    }]
+                }
+            })
+        ;
+
     }
 
 })();

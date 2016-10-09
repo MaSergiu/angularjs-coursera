@@ -1,0 +1,31 @@
+<button type="button" class="btn btn-primary"
+        ui-sref="home">Home</button>
+&lt;
+<button type="button" class="btn btn-default">Categories</button>
+
+<h3>Categories</h3>
+
+<div class="list-group">
+    <div class="col-lg-10 col-md-10 col-sm-10 cols col-xs-10">
+        <button type="button" class="list-group-item">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <strong>Category Name</strong>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 cols col-xs-3">
+                <strong>Category Short Name</strong>
+            </div>
+        </button>
+        <button type="button" class="list-group-item"
+                ng-repeat="category in categories.returnedCategories"
+                ui-sref="items({categoryShortName: category.short_name})">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                {{ category.name }}
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                {{ category.short_name }}
+            </div>
+        </button>
+    </div>
+</div>
+
+<ui-view></ui-view>

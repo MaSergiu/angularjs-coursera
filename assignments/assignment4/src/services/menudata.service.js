@@ -10,6 +10,11 @@
     function MenuDataService($http, CategoriesPath, ItemsForCategoryPath) {
         var service = this;
 
+        /**
+         * Gets all categories
+         *
+         * @returns {*}
+         */
         service.getAllCategories = function () {
 
             return $http({
@@ -21,6 +26,12 @@
             });
         };
 
+        /**
+         * Gets all items for a specific category
+         *
+         * @param categoryShortName Category's short name
+         * @returns {*}
+         */
         service.getItemsForCategory = function (categoryShortName) {
             return $http({
                 method: 'GET',
