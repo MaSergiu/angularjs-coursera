@@ -1,0 +1,31 @@
+<form action="" ui-sref="public.menuitems{category: signUpController.chosenCategory.short_name}">
+    <div class="container">
+        <div>
+            <div>First Name</div>
+            <input type="text">
+        </div>
+        <div>
+            <div>Last Name</div>
+            <input type="text">
+        </div>
+        <div>
+            <div>Email Address</div>
+            <input type="email">
+        </div>
+        <div>
+            <div>Phone Number</div>
+            <input type="tel">
+        </div>
+        <div>
+            <div>Choose your favourite dish</div>
+            <select name="category" id="category">
+                <option ng-repeat="category in signUpController.menuCategories"
+                        value="category.short_name">
+                    {{ category.name }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" value="Submit" class="btn btn-default" ng-click="signUpController.submit()">Submit</button>
+    </div>
+</form>
