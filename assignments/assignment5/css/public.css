@@ -130,6 +130,15 @@ h3.menu-item-title {
 
 /* END SINGLE CATEGORY PAGE */
 
+/* NEWSLETTER FORM */
+.ng-touched.ng-valid {
+    border: 2px solid green;
+}
+.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+/* END NEWSLETTER FORM */
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
     .container .jumbotron {

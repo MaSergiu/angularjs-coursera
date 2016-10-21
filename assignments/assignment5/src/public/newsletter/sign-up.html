@@ -1,31 +1,69 @@
-<form action="" ui-sref="public.menuitems{category: signUpController.chosenCategory.short_name}">
+<form name="newsletterForm"
+      novalidate
+      ui-sref="public.menuitems{category: signUpController.chosenCategory.short_name}">
     <div class="container">
         <div>
             <div>First Name</div>
-            <input type="text">
+            <input type="text" name="firstName" class="form-control"
+                   ng-model="signUpController.user.firstName"
+                   required
+                   ng-minlength="signUpController.nameMinLength">
+            <span ng-if="(newsletterForm.firstName.$error.required ||
+                        newsletterForm.firstName.$error.minlength)
+                        && newsletterForm.firstName.$touched">
+                First name is required and must be at least {{ signUpController.nameMinLength }} characters long
+            </span>
         </div>
         <div>
             <div>Last Name</div>
-            <input type="text">
+            <input type="text" name="lastName" class="form-control"
+                   ng-model="signUpController.user.lastName"
+                   required
+                   ng-minlength="3">
+            <span ng-if="(newsletterForm.lastName.$error.required ||
+                        newsletterForm.firstName.$error.minlength)
+                        && newsletterForm.lastName.$touched">
+                Last name is required and must be at least {{ signUpController.nameMinLength }} characters long
+            </span>
         </div>
         <div>
             <div>Email Address</div>
-            <input type="email">
+            <input type="email" name="email" class="form-control"
+                   ng-model="signUpController.user.email"
+                   required>
+            <span ng-if="(newsletterForm.email.$error.required || newsletterForm.email.$invalid)
+                        && newsletterForm.email.$touched">
+                Email is required and must be a valid email address: handle@domain format
+            </span>
         </div>
         <div>
             <div>Phone Number</div>
-            <input type="tel">
+            <input type="tel" name="phone" class="form-control" placeholder="###-##-##-##-##"
+                   ng-model="signUpController.user.phone"
+                   pattern="(\d{3})-(\d{2})-(\d{2})-(\d{2})-(\d{2})">
+            <span ng-if="newsletterForm.phone.$invalid && newsletterForm.email.$touched">
+                Phone number must be in the format ###-##-##-##-##
+            </span>
         </div>
         <div>
             <div>Choose your favourite dish</div>
-            <select name="category" id="category">
+            <select name="category" id="category" class="form-control"
+                    required
+                    ng-model="signUpController.user.favouriteDish">
                 <option ng-repeat="category in signUpController.menuCategories"
-                        value="category.short_name">
+                        value="{{category.short_name}}">
                     {{ category.name }}
                 </option>
             </select>
+            <span ng-if="newsletterForm.category.$error.required && newsletterForm.category.$touched">
+                Favourite dish is required
+            </span>
         </div>
 
-        <button type="submit" value="Submit" class="btn btn-default" ng-click="signUpController.submit()">Submit</button>
+        <button class="btn btn-default"
+                ng-click="signUpController.submit()"
+                ng-disabled="newsletterForm.$invalid">
+            Submit
+        </button>
     </div>
 </form>
