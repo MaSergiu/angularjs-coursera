@@ -45,12 +45,18 @@
                 url: '/newsletter',
                 templateUrl: 'src/public/newsletter/sign-up.html',
                 controller: 'signUpController',
-                controllerAs: 'signUpController',
+                controllerAs: 'signUp',
                 resolve: {
-                    menuCategories: ['MenuService', function (MenuService) {
-                        return MenuService.getCategories();
+                    menuItems: ['MenuService', function (MenuService) {
+                        return MenuService.getMenuItems();
                     }]
                 }
+            })
+            .state('public.info', {
+                url: '/info',
+                templateUrl: 'src/public/info/info.html',
+                controller: 'infoController',
+                controllerAs: 'info'
             });
     }
 })();
