@@ -26,7 +26,15 @@
     <div>
         <div>
             Favourite dish:
-            {{ $ctrl.user.favouriteDish }}
+            {{ $ctrl.user.item.name }}
+        </div>
+        <div>
+            Description:
+            {{ $ctrl.user.item.description }}
+        </div>
+        <div>
+            Picture:
+            <img ng-src="{{$ctrl.basePath}}/images/{{$ctrl.user.favouriteDish}}" alt="{{ $ctrl.user.item.name }}">
         </div>
     </div>
 </div>

@@ -4,12 +4,11 @@
     angular.module('public')
         .controller('infoController', infoController);
 
-    infoController.$inject = ['MenuService'];
-    function infoController(MenuService) {
+    infoController.$inject = ['UserService', 'ApiPath'];
+    function infoController(UserService, ApiPath) {
         var controller = this;
 
-        controller.user = MenuService.getSavedUserInfo();
-        console.log(controller.user.favouriteDish);
+        controller.user = UserService.getSavedUserInfo();
     }
 
 })();

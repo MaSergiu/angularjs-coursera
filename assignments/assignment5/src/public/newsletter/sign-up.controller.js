@@ -4,8 +4,8 @@
     angular.module('public')
         .controller('signUpController', signUpController);
 
-    signUpController.$inject = ['menuItems', 'MenuService'];
-    function signUpController (menuItems, MenuService) {
+    signUpController.$inject = ['UserService'];
+    function signUpController (UserService) {
         var controller = this;
 
         controller.nameMinLength = 4;
@@ -18,10 +18,8 @@
             favouriteDish: ''
         };
 
-        controller.menuItems = menuItems.menu_items;
-
         controller.submit = function () {
-            MenuService.saveUserInfo(controller.user).then(function (response) {
+            UserService.saveUserInfo(controller.user).then(function (response) {
                 controller.submitInfo = response.message;
             });
         }

@@ -45,12 +45,7 @@
                 url: '/newsletter',
                 templateUrl: 'src/public/newsletter/sign-up.html',
                 controller: 'signUpController',
-                controllerAs: 'signUp',
-                resolve: {
-                    menuItems: ['MenuService', function (MenuService) {
-                        return MenuService.getMenuItems();
-                    }]
-                }
+                controllerAs: 'signUp'
             })
             .state('public.info', {
                 url: '/info',
